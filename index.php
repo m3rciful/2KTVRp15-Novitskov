@@ -1,11 +1,10 @@
 <?php
-
-include,once 'model/model.php';
-$post = get_all_posts();
-
+include_once '/model/model.php';
+$posts = get_all_posts();
+echo "privet";
 ?>
 
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>2KTVRp - Novitskov</title>
@@ -13,12 +12,12 @@ $post = get_all_posts();
 <body>
 
 <h2>Список постов</h2>
-	<ul>  <?php foreach ($posts as $post); ?>
+	<ul>  <?php foreach ($posts as $post): ?>
 		<li><a href="#">
-				<?php echo $post['id'] ' . ' $post['title']; ?>
+				<?php echo $post['id']. ' . ' .$post['title']; ?>
 			</a>
 		</li>
-	<?php endforeach; ?>
+	<?php endforeach ?>
 	</ul>
 
 </body>

@@ -19,7 +19,7 @@ function get_all_posts()
 	$sql = 'SELECT * FROM post';
 	$result = mysql_query($sql, $link);
 	$posts = array();
-	while($row = $result->fetch_assoc($result)) {
+	while($row = mysql_fetch_assoc($result)) {
 		$posts[] = $row;
 	}
 	close_database_connection($link);
