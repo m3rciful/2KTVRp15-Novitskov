@@ -2,13 +2,12 @@
 
 function open_database_connection () 
 {
-	$link = mysql_connect('localhost', 'novitskov', '123');
+	$link = mysql_connect('localhost', 'sergei', '123');
 	mysql_select_db ('novitskov', $link);
 	mysql_query('SET NAMES utf8');
 	return $link;
 }
-function 
-$link = close_database_connection($link);
+function close_database_connection($link)
 {
 	mysql_close($link);
 }
@@ -16,10 +15,11 @@ $link = close_database_connection($link);
 function get_all_posts() 
 {
 	$link = open_database_connection();
-	$sql = 'SELECT * FROM post';
+	$sql = "SELECT * FROM post";
 	$result = mysql_query($sql, $link);
 	$posts = array();
-	while($row = mysql_fetch_assoc($result)) {
+	while($row = mysql_fetch_assoc($result))
+	{
 		$posts[] = $row;
 	}
 	close_database_connection($link);

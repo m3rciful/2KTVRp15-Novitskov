@@ -1,7 +1,6 @@
 <?php
-include_once '/model/model.php';
+include_once 'model/model.php';
 $posts = get_all_posts();
-echo "privet";
 ?>
 
 <!DOCTYPE html>
