@@ -27,4 +27,15 @@ function get_all_posts()
 	return $posts;
 }
 
+function add_new_posts($title, $author, $content)
+{
+	$link = open_database_connection();
+
+	$query = "INSERT INTO `novitskov`.`post` (`id`, `author`, `time`, `title`, `content`) 
+			  VALUES (NULL, '$author', CURRENT_TIMESTAMP, '$title', '$content');";
+	
+	mysql_query($query, $link);
+
+	close_database_connection($link);
+}
 ?>
