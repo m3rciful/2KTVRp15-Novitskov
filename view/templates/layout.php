@@ -5,5 +5,6 @@
 </head>
 <body>
 	<?php echo $content; ?>
+	<?php require "add_post.php"; ?>
 </body>
 </html>
