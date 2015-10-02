@@ -27,12 +27,15 @@ function get_all_posts()
 	return $posts;
 }
 
-function add_msg($msg)
+function add_msg()
 {
 	$link = open_database_connection();
 
-	$query = "INSERT INTO `novitskov`.`chat` (`id`, `date`, `msg`) 
-			  VALUES (NULL, CURRENT_TIMESTAMP, '$msg');";
+	$msg= $_POST['msg'];
+	$ip = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+
+	$query = "INSERT INTO `novitskov`.`chat` (`id`, `date`, `msg`, `ip`) 
+			  VALUES (NULL, CURRENT_TIMESTAMP, '$msg', '$ip');";
 	
 	mysql_query($query, $link);
 
@@ -41,13 +44,10 @@ function add_msg($msg)
 
 if(isset($_POST['add']))
 {
-	$msg= $_POST['msg'];
-
-    $query = add_msg($msg);
+    $query = add_msg();
 
     header("location: chat.php");
 }
-
 $posts = get_all_posts();
 
 ?>
@@ -59,5 +59,5 @@ $posts = get_all_posts();
 
 <h2>Chat Beta</h2>
 	<?php foreach ($posts as $post): ?>
-				<?php echo $post['date']. ' . ' .$post['msg']; ?><br>
+				<?php echo $post['date']. ' <a href=http:// ' .$post['ip']. '>' .$post['ip']. '</a>: '  .$post['msg']; ?><br>
 	<?php endforeach ?>

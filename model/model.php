@@ -26,7 +26,17 @@ function get_all_posts()
 
 	return $posts;
 }
+function get_posts($id) 
+{
+	$link = open_database_connection();
+	$sql = "SELECT * FROM post WHERE id='$id'";
+	$result = mysql_query($sql, $link);
+	$post = mysql_fetch_assoc($result);
+	close_database_connection($link);
+	return $post;
+}
 
+// Моя разработка
 function add_new_posts($title, $author, $content)
 {
 	$link = open_database_connection();
