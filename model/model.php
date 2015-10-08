@@ -1,9 +1,32 @@
 <?php
+/*
+function open_database_connection () 
+{
+	$host = 'localhost';
+	$dbname = 'sergeiDB';
+	$user = 'pupil';
+	$pass = '123';
+
+	try  # подключаемся к базе данных  
+	{  
+  		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
+  		$DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );  
+  
+		# Черт! Набрал DELECT вместо SELECT!  
+		$DBH->prepare('DELECT name FROM people')->execute();  
+	}  
+	catch(PDOException $e) 
+	{  
+		echo "Хьюстон, у нас проблемы.";  
+    	file_put_contents('PDOErrors.txt', $e->getMessage(), FILE_APPEND);  
+	}
+}
+*/
 
 function open_database_connection () 
 {
 	$link = mysql_connect('localhost', 'pupil', '123');
-	mysql_select_db ('sergei_db', $link);
+	mysql_select_db ('sergeiDB', $link);
 	mysql_query('SET NAMES utf8');
 	return $link;
 }
@@ -35,9 +58,25 @@ function get_post($id)
 	close_database_connection($link);
 	return $post;
 }
+function add_post()
+{
+	echo "test";
+	$author = $_REQUEST ['add_author'];
+	$title = $_REQUEST['add_title'];
+	$content = $_REQUEST['add_content'];
 
+	$link = open_database_connection();
+
+	$query = "INSERT INTO `post` (`id`, `author`, `time`, `title`, `content`) 
+			  VALUES (NULL, '$author', CURRENT_TIMESTAMP, '$title', '$content');";
+	
+	mysql_query($query, $link);
+
+	close_database_connection($link);
+}
+/*
 // Моя разработка
-function add_new_posts($title, $author, $content)
+function add_post($title, $author, $content)
 {
 	$link = open_database_connection();
 
@@ -48,4 +87,6 @@ function add_new_posts($title, $author, $content)
 
 	close_database_connection($link);
 }
+*/
+
 ?>

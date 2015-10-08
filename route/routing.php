@@ -6,16 +6,21 @@ $u = explode('?', $uri);
 $uri=$u[0];
 echo "<br>newUri=".$uri;
 
-if ($uri == '/2KTVRp15-Novitskov/' OR $uri == '/2KTVRp15-Novitskov/index.php') 
+if ($uri == '/2KTVRp15/' OR $uri == '/2KTVRp15/index.php') 
 {
 	list_action();
 }
-elseif ($uri == '/2KTVRp15-Novitskov/index.php/admin') 
+elseif ($uri == '/2KTVRp15/index.php/admin') 
 {
 	admin_action();
 }
-elseif ($uri == '/2KTVRp15-Novitskov/index.php/show')
+elseif ($uri == '/2KTVRp15/index.php/show')
 {
 	show_action($_REQUEST['id']);
+}
+elseif ($uri == '/2KTVRp15/index.php/add')
+{
+	add_action();
+	header("location: ../index.php");
 }
 ?>

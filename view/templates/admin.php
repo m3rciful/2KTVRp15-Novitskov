@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 
 <h2>Администрирование странички</h2>
-<form actuib="index.php/add" method="POST" name="form1">
+<form action="../index.php/add" method="POST">
 <table>
 	<tr>
 		<td>Автор:</td>
@@ -9,7 +9,7 @@
 	</tr>
 	<tr>
 		<td>Дата:</td>
-		<td><input type="text" name="add_date"></td>
+		<td><input type="text" name="add_time" value="<?php echo date("Y-m-d H:i:s"); ?>"></td>
 	</tr>
 	<tr>
 		<td>Заголовок:</td>
