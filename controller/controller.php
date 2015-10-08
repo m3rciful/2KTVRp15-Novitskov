@@ -11,6 +11,6 @@ function admin_action()
 function show_action($id)
 {
 	$post = get_post($id);
-	require "view/templates/show_post.php";
+	require "view/templates/show.php";
 }
 ?>

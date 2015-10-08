@@ -10,7 +10,7 @@
 		</li>
 	<?php endforeach ?>
 	</ul>
-<?php require "add_post.php"; ?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php include "view/templates/layout.php";

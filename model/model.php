@@ -2,8 +2,8 @@
 
 function open_database_connection () 
 {
-	$link = mysql_connect('localhost', 'sergei', '123');
-	mysql_select_db ('novitskov', $link);
+	$link = mysql_connect('localhost', 'pupil', '123');
+	mysql_select_db ('sergei_db', $link);
 	mysql_query('SET NAMES utf8');
 	return $link;
 }
@@ -26,7 +26,7 @@ function get_all_posts()
 
 	return $posts;
 }
-function get_posts($id) 
+function get_post($id) 
 {
 	$link = open_database_connection();
 	$sql = "SELECT * FROM post WHERE id='$id'";
