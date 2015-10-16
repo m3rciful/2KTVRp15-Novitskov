@@ -15,9 +15,18 @@ function show_action($id)
 }
 function add_action()
 {
-	if (isset($_POST['submit']) AND !empty($_POST['add_author']))
+	if (isset($_POST['submit']) && !empty($_POST['add_title']))
 	{
     	add_post();
 	}
+}
+function about_action()
+{
+	require "view/templates/about.php";
+}
+function remove_action($id)
+{
+	$post = remove_post($id);
+	header('Location: ../index.php');
 }
 ?>

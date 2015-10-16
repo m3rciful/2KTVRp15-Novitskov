@@ -60,7 +60,6 @@ function get_post($id)
 }
 function add_post()
 {
-	echo "test";
 	$author = $_REQUEST ['add_author'];
 	$title = $_REQUEST['add_title'];
 	$content = $_REQUEST['add_content'];
@@ -74,19 +73,13 @@ function add_post()
 
 	close_database_connection($link);
 }
-/*
-// Моя разработка
-function add_post($title, $author, $content)
+function remove_post($id) 
 {
 	$link = open_database_connection();
-
-	$query = "INSERT INTO `novitskov`.`post` (`id`, `author`, `time`, `title`, `content`) 
-			  VALUES (NULL, '$author', CURRENT_TIMESTAMP, '$title', '$content');";
-	
-	mysql_query($query, $link);
-
+	$sql = "DELETE FROM `post` WHERE `post`.`id` = $id";
+	$result = mysql_query($sql, $link);
+	$post = mysql_fetch_assoc($result);
 	close_database_connection($link);
+	return $post;
 }
-*/
-
 ?>
