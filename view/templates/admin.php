@@ -17,11 +17,11 @@
 	</tr>
 	<tr>
 		<td>Текст:</td>
-		<td><input type="textarea" name="add_content"></td>
+		<td><textarea rows="10" cols="45" name="add_content"></textarea></td>
 	</tr>
 	<tr>
-		<td><input type="reset" name=""  reset="" value="Очистить"></td>
-		<td><input type="submit" name="submit" value="Добавить"></td>
+		<td></td>
+		<td><input type="submit" name="submit" value="Добавить"> <input type="reset" name=""  reset="" value="Очистить"></td>
 	</tr>
 </table>
 </form>

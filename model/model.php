@@ -1,28 +1,4 @@
 <?php
-/*
-function open_database_connection () 
-{
-	$host = 'localhost';
-	$dbname = 'sergeiDB';
-	$user = 'pupil';
-	$pass = '123';
-
-	try  # подключаемся к базе данных  
-	{  
-  		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
-  		$DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );  
-  
-		# Черт! Набрал DELECT вместо SELECT!  
-		$DBH->prepare('DELECT name FROM people')->execute();  
-	}  
-	catch(PDOException $e) 
-	{  
-		echo "Хьюстон, у нас проблемы.";  
-    	file_put_contents('PDOErrors.txt', $e->getMessage(), FILE_APPEND);  
-	}
-}
-*/
-
 function open_database_connection () 
 {
 	$link = mysql_connect('localhost', 'pupil', '123');
@@ -64,6 +40,9 @@ function add_post()
 	$title = $_REQUEST['add_title'];
 	$content = $_REQUEST['add_content'];
 
+	if (empty($content))
+		$content = random_lipsum(1, 'paras', 0);
+
 	$link = open_database_connection();
 
 	$query = "INSERT INTO `post` (`id`, `author`, `time`, `title`, `content`) 
@@ -81,5 +60,10 @@ function remove_post($id)
 	$post = mysql_fetch_assoc($result);
 	close_database_connection($link);
 	return $post;
+}
+// Random Text from Lorem Ipsum
+function random_lipsum($amount, $what, $start)
+{
+    return simplexml_load_file("http://www.lipsum.com/feed/xml?amount=$amount&what=$what&start=$start")->lipsum;
 }
 ?>
