@@ -14,6 +14,11 @@ function list_action()
 }
 function admin_action()
 {
+	if (isset($_POST['submit']) && !empty($_POST['add_title']))
+	{
+    	add_post();
+    	header("location: ../index.php");
+	}
 	$html = render_template('view/templates/admin.php', array());
 	return $html;
 }
@@ -23,13 +28,20 @@ function show_action($id)
 	$html = render_template('view/templates/show.php', array('post' => $post));
 	return $html;
 }
+function edit_action($id)
+{
+	$post = get_post($id);
+	$html = render_template('view/templates/edit.php', array('post' => $post));
+	if (isset($_POST['submit']))
+	{
+    	edit_post($id);
+    	header("location: ../index.php/show?id=".$id);
+	}
+	return $html;
+}
 function add_action()
 {
-	if (isset($_POST['submit']) && !empty($_POST['add_title']))
-	{
-    	add_post();
-	}
-	header("location: ../index.php");
+
 }
 function about_action()
 {

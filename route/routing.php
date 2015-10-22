@@ -1,14 +1,14 @@
 <?php
 
-echo  $_SERVER['REQUEST_URI'];
+//echo  $_SERVER['REQUEST_URI'];
 $uri = $_SERVER['REQUEST_URI'];
 $u = explode('?', $uri);
 $uri=$u[0];
-echo "<br>newUri=".$uri;
+//echo "<br>newUri=".$uri;
+
 
 if ($uri == '/2KTVRp15/' OR $uri == '/2KTVRp15/index.php') 
 {
-	echo '<hr><a href="index.php/admin">ADD POST</a> | <a href="index.php/about">ABOUT ME</a>';
 	//list_action();
 	$response = list_action();
 }
@@ -31,5 +31,9 @@ elseif ($uri == '/2KTVRp15/index.php/about')
 elseif ($uri == '/2KTVRp15/index.php/remove')
 {
 	$response = remove_action($_REQUEST['id']);
+}
+elseif ($uri == '/2KTVRp15/index.php/edit')
+{
+	$response = edit_action($_REQUEST['id']);
 }
 ?>
