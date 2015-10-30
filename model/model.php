@@ -1,8 +1,9 @@
 <?php
+// Подключение к базе
 function open_database_connection () 
 {
 	$link = mysql_connect('localhost', 'pupil', '123');
-	mysql_select_db ('sergeiDB', $link);
+	mysql_select_db ('sergei_db', $link);
 	mysql_query('SET NAMES utf8');
 	return $link;
 }
@@ -10,7 +11,7 @@ function close_database_connection($link)
 {
 	mysql_close($link);
 }
-
+// Загрузка постов
 function get_all_posts() 
 {
 	$link = open_database_connection();
@@ -25,6 +26,7 @@ function get_all_posts()
 
 	return $posts;
 }
+// Просмотр поста
 function get_post($id) 
 {
 	$link = open_database_connection();
@@ -34,6 +36,7 @@ function get_post($id)
 	close_database_connection($link);
 	return $post;
 }
+// Добавление поста
 function add_post()
 {
 	$author = $_REQUEST ['add_author'];
@@ -52,6 +55,7 @@ function add_post()
 
 	close_database_connection($link);
 }
+// Редактирование
 function edit_post($id)
 {
 	$author = $_REQUEST ['add_author'];
@@ -67,12 +71,12 @@ function edit_post($id)
 
 	close_database_connection($link);
 }
+// Удаление
 function remove_post($id) 
 {
 	$link = open_database_connection();
 	$sql = "DELETE FROM post WHERE id = $id";
 	$result = mysql_query($sql, $link);
-	$post = mysql_fetch_assoc($result);
 	close_database_connection($link);
 	return $post;
 }

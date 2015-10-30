@@ -1,39 +1,34 @@
 <?php
 
-//echo  $_SERVER['REQUEST_URI'];
 $uri = $_SERVER['REQUEST_URI'];
-$u = explode('?', $uri);
-$uri=$u[0];
-//echo "<br>newUri=".$uri;
+$uri = explode('?', $uri)[0];
+$personal_uri = '/'. explode('/', $uri)[1]. '/';
 
-
-if ($uri == '/2KTVRp15/' OR $uri == '/2KTVRp15/index.php') 
+if ($uri == $personal_uri OR $uri == $personal_uri.'index.php') 
 {
-	//list_action();
 	$response = list_action();
 }
-elseif ($uri == '/2KTVRp15/index.php/admin') 
+elseif ($uri == $personal_uri.'index.php/admin') // Админ
 {
 	$response = admin_action();
 }
-elseif ($uri == '/2KTVRp15/index.php/show')
+elseif ($uri == $personal_uri.'index.php/show') // Просмотр
 {
 	$response = show_action($_REQUEST['id']);
 }
-elseif ($uri == '/2KTVRp15/index.php/add')
-{
-	$response = add_action();
-}
-elseif ($uri == '/2KTVRp15/index.php/about')
-{
-	$response = about_action();
-}
-elseif ($uri == '/2KTVRp15/index.php/remove')
+elseif ($uri == $personal_uri.'index.php/remove') // Удаление
 {
 	$response = remove_action($_REQUEST['id']);
 }
-elseif ($uri == '/2KTVRp15/index.php/edit')
+elseif ($uri == $personal_uri.'index.php/edit') // Редактирование
 {
 	$response = edit_action($_REQUEST['id']);
+}
+// ---------------------------------
+//	ДОПОЛНИТЕЛЬНЫЕ СТРАНИЦЫ
+// ---------------------------------
+elseif ($uri == $personal_uri.'index.php/about')
+{
+	$response = about_action();
 }
 ?>
