@@ -17,12 +17,16 @@
 			<td><?php echo $post['title'];?></td>
 		</tr>
 		<tr>
-			<td><b>Текст:</b></td>
-			<td><?php echo $post['content'];?></td>
+			<td style="vertical-align: top;"><b>Текст:</b></td>
+			<td><textarea rows="10" cols="45" class="form-control" name="add_content" readonly="readonly"><?php echo $post['content'];?></textarea></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<a class="btn btn-default" href="../index.php/edit?id=<?php echo $post['id'];?>" role="button"><i class="fa fa-pencil"></i> Изменить</a> <a class="btn btn-danger" href="../index.php/remove?id=<?php echo $post['id'];?>" role="button"><i class="fa fa-trash-o"></i> Удалить</a>
+			</td>
 		</tr>
 	</table>
-<hr>
-<a class="btn btn-default" href="../index.php/edit?id=<?php echo $post['id'];?>" role="button"><i class="fa fa-pencil"></i> Изменить</a> <a class="btn btn-danger" href="../index.php/remove?id=<?php echo $post['id'];?>" role="button"><i class="fa fa-trash-o"></i> Удалить</a>
 </div>
 
 <?php $content = ob_get_clean(); ?>

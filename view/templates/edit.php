@@ -11,7 +11,9 @@
 		</tr>
 		<tr>
 			<td><b>Дата:</b></td>
-			<td><input type="text" class="form-control" name="add_time" value="<?php echo $post['time'];?>"></td>
+			<td>
+				<input type="text" class="form-control" name="add_time" value="<?php echo $post['time'];?>">
+			</td>
 		</tr>
 		<tr>
 			<td><b>Заголовок:</b></td>
@@ -20,8 +22,13 @@
 		<tr>
 			<td style="vertical-align: top;"><b>Текст:</b></td>
 			<td><textarea rows="10" cols="45" class="form-control" name="add_content"><?php echo $post['content'];?></textarea>
-			<br><button type="submit" name="edit_post" class="btn btn-default"><i class="fa fa-floppy-o"></i>
- Сохранить</button> </td>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button type="submit" name="edit_post" class="btn btn-default"><i class="fa fa-floppy-o"></i> Сохранить</button> <a class="btn btn-default" href="../index.php/show?id=<?php echo $post['id'];?>" role="button"><i class="fa fa-ban"></i> Отмена</a>
+			</td>
 		</tr>
 	</table>
 </form>

@@ -40,6 +40,8 @@ function get_post($id)
 function add_post()
 {
 	$author = $_REQUEST ['add_author'];
+	$date = $_REQUEST['add_time'];
+	$time = date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $date)));
 	$title = $_REQUEST['add_title'];
 	$content = $_REQUEST['add_content'];
 
@@ -49,7 +51,7 @@ function add_post()
 	$link = open_database_connection();
 
 	$query = "INSERT INTO `post` (`id`, `author`, `time`, `title`, `content`) 
-			  VALUES (NULL, '$author', CURRENT_TIMESTAMP, '$title', '$content');";
+			  VALUES (NULL, '$author', '$time', '$title', '$content');";
 	
 	mysql_query($query, $link);
 
@@ -59,7 +61,7 @@ function add_post()
 function edit_post($id)
 {
 	$author = $_REQUEST ['add_author'];
-	$time = $_REQUEST['time'];
+	$time = $_REQUEST['add_time'];
 	$title = $_REQUEST['add_title'];
 	$content = $_REQUEST['add_content'];
 
