@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<h2>Добавить</h2>
+<h2><a href="../index.php" class="fa fa-chevron-left"></a> Добавить</h2>
 <hr>
 <div class="col-xs-12 col-sm-6 col-md-8">
 <form method="POST">
@@ -20,8 +20,10 @@
 	 	<label for="add_content">Текст</label>
 	 	<textarea rows="10" cols="45" name="add_content" class="form-control"></textarea>
 	</div>
-	<button type="submit" id="submit" name="submit" class="btn btn-default">Добавить</button> 
-	<button type="reset" reset="" name="" class="btn btn-default">Очистить</button>
+	<button type="submit" id="submit" name="submit" class="btn btn-default"><i class="fa fa-plus"></i>
+ Добавить</button> 
+	<button type="reset" reset="" name="" class="btn btn-default"><i class="fa fa-eraser"></i>
+ Очистить</button>
 </form>
 </div>
 

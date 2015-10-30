@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<h2>Пост #<?php echo $post['id'];?> <b>Редактирование</b></h2>
+<h2><a href="../index.php" class="fa fa-chevron-left"></a> Пост #<?php echo $post['id'];?> <b>Редактирование</b></h2>
 <hr>
 <div class="col-xs-12 col-sm-6 col-md-8">
 <form method="POST">
@@ -18,9 +18,10 @@
 			<td><input type="text" class="form-control" name="add_title" value="<?php echo $post['title'];?>"></td>
 		</tr>
 		<tr>
-			<td><b>Текст:</b></td>
+			<td style="vertical-align: top;"><b>Текст:</b></td>
 			<td><textarea rows="10" cols="45" class="form-control" name="add_content"><?php echo $post['content'];?></textarea>
-			<br><button type="submit" name="edit_post" class="btn btn-default"><i class="fa fa-pencil"></i> Изменить</button> </td>
+			<br><button type="submit" name="edit_post" class="btn btn-default"><i class="fa fa-floppy-o"></i>
+ Сохранить</button> </td>
 		</tr>
 	</table>
 </form>

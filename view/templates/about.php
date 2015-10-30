@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<h2>Обо мне</h2>
+<h2><a href="../index.php" class="fa fa-chevron-left"></a> Обо мне</h2>
 <hr>
 <div class="col-xs-12 col-sm-6 col-md-8">
 	<ul>
