@@ -30,8 +30,7 @@ function get_all_posts()
 function get_post($id) 
 {
 	$link = open_database_connection();
-	$sql = "SELECT * FROM post WHERE id='$id'";
-	$result = mysql_query($sql, $link);
+	$result = mysql_query("SELECT * FROM post WHERE id='$id'", $link);
 	$post = mysql_fetch_assoc($result);
 	close_database_connection($link);
 	return $post;

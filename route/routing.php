@@ -31,4 +31,8 @@ elseif ($uri == $personal_uri.'index.php/about')
 {
 	$response = about_action();
 }
+else
+{
+	$response = error_404();
+}
 ?>

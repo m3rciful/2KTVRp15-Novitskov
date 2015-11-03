@@ -64,4 +64,9 @@ function about_action()
 	$html = render_template('view/templates/about.php', array());
 	return $html;
 }
+function error_404()
+{
+	$html = render_template('view/templates/error_404.php', array());
+	return $html;
+}
 ?>

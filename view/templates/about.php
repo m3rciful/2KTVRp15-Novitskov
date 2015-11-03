@@ -1,14 +1,13 @@
+<?php $title = 'Обо мне'; ?>
+
 <?php ob_start() ?>
 
 <h2><a href="../index.php" class="fa fa-chevron-left"></a> Обо мне</h2>
 <hr>
-<div class="col-xs-12 col-sm-6 col-md-8">
 	<ul>
-		<li>Меня зовут: Сергей</li>
-		<li>Вот и все</li>
+		<li>Sergei Novitskov</li>
+		<li>2KTVRp15</li>
 	</ul>
-</div>
-
 
 <?php $content = ob_get_clean(); ?>
 

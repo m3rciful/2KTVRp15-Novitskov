@@ -1,8 +1,9 @@
+<?php $title = 'Редактирование'; ?>
+
 <?php ob_start() ?>
 
-<h2><a href="../index.php" class="fa fa-chevron-left"></a> Пост #<?php echo $post['id'];?> <b>Редактирование</b></h2>
+<h2><a href="../index.php/show?id=<?php echo $post['id'];?>" class="fa fa-chevron-left"></a> Пост #<?php echo $post['id'];?> <b>Редактирование</b></h2>
 <hr>
-<div class="col-xs-12 col-sm-6 col-md-8">
 <form method="POST">
 	<table class='table-condensed'>
 		<tr>
@@ -27,7 +28,7 @@
 		<tr>
 			<td></td>
 			<td>
-				<button type="submit" name="edit_post" class="btn btn-default"><i class="fa fa-floppy-o"></i> Сохранить</button> <a class="btn btn-default" href="../index.php/show?id=<?php echo $post['id'];?>" role="button"><i class="fa fa-ban"></i> Отмена</a>
+				<button type="submit" name="edit_post" class="btn btn-default"><i class="fa fa-floppy-o"></i> Сохранить</button>
 			</td>
 		</tr>
 	</table>
